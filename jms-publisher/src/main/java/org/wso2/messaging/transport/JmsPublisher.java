@@ -22,16 +22,6 @@ import javax.naming.NamingException;
 public class JmsPublisher {
 
     /**
-     * Connection with the JMS provider i.e WSO2 RegistrationMessage Broker
-     */
-    private QueueConnection queueConnection;
-
-    /**
-     * Session established with the queue
-     */
-    private QueueSession queueSession;
-
-    /**
      * The connection factory would be defined when initializing the publisher
      */
     private JmsConnection connection;
@@ -42,7 +32,13 @@ public class JmsPublisher {
     }
 
     /**
+     * <p>
      * Sends a JMS message to a queue
+     * <p/>
+     * <p>
+     * <b>Note:<b/> Per each request a new connection will be established with the broker, this will not be the
+     * most optimum way of sending the message. In future the connection caching mechanism will be introduced
+     * <p/>
      *
      * @param queueName name of the destination queue
      * @param message   message content
@@ -53,6 +49,8 @@ public class JmsPublisher {
             JMSException {
 
         QueueSender queueSender = null;
+        QueueConnection queueConnection = null;
+        QueueSession queueSession = null;
 
         try {
             // Lookup connection factory
