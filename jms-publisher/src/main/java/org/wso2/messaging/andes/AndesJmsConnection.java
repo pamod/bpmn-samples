@@ -5,7 +5,7 @@
 
 package org.wso2.messaging.andes;
 
-import org.wso2.messaging.transport.JavaConnection;
+import org.wso2.messaging.transport.JmsConnection;
 
 import javax.jms.QueueConnectionFactory;
 import javax.naming.Context;
@@ -16,7 +16,7 @@ import java.util.Properties;
 /**
  * Creates JMS connection with the broker
  */
-public class AndesJmsConnection implements JavaConnection {
+public class AndesJmsConnection implements JmsConnection {
 
     /**
      * Qpid specific initial context factory

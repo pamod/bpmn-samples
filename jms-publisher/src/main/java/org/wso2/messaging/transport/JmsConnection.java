@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 /**
  * Details to establish a connection with the wso2 message broker
  */
-public interface JavaConnection {
+public interface JmsConnection {
 
     /**
      * JMS queue connection
