@@ -1,0 +1,1 @@
+Demonstrates how a message could be published to a JMS broker

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_WORKSPACE=/Users/pamod/Desktop/work/customers/PSI/code/bpmn-samples
+org.eclipse.jdt.core.userLibrary.Activiti\ Designer\ Extensions=<?xml version\="1.0" encoding\="UTF-8"?>\n<userlibrary systemlibrary\="false" version\="2">\n\t<archive path\="/Users/pamod/Desktop/work/customers/PSI/setup/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/955/0/.cp/libs/extensions/org.wso2.developerstudio.bpmn.extensions-3.6.0-SNAPSHOT.jar"/>\n</userlibrary>\n
