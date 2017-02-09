@@ -34,10 +34,10 @@ public class JmsPublisher {
     /**
      * The connection factory would be defined when initializing the publisher
      */
-    private JMSConnection connection;
+    private JavaConnection connection;
 
 
-    public JmsPublisher(JMSConnection connection) {
+    public JmsPublisher(JavaConnection connection) {
         this.connection = connection;
     }
 
