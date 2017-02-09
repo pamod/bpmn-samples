@@ -9,7 +9,6 @@ import org.activiti.engine.delegate.JavaDelegate;
 import org.wso2.messaging.andes.AndesJmsConnection;
 import org.wso2.messaging.message.Message;
 import org.wso2.messaging.message.RegistrationMessage;
-import org.wso2.messaging.transport.JMSConnection;
 import org.wso2.messaging.transport.JmsPublisher;
 
 /**
@@ -20,14 +19,19 @@ public class ReliableMessagingActiviti implements JavaDelegate {
     /**
      * Will publish a given JMS message
      */
-    JmsPublisher publisher = new JmsPublisher();
+    private JmsPublisher publisher;
+
+    public ReliableMessagingActiviti() {
+        //Publisher will be created by defining a connection with the wso2 message broker
+        //If some other message broker is to be integrated the relevant connection object should be provided
+        this.publisher = new JmsPublisher(new AndesJmsConnection());
+    }
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        JMSConnection connection = new AndesJmsConnection();
 
         //Will extract the variables
         String frmUserName = (String) delegateExecution.getVariable("frmUserName");
@@ -37,6 +41,6 @@ public class ReliableMessagingActiviti implements JavaDelegate {
         //Will construct the message content
         Message message = new RegistrationMessage(frmUserName, frmRegistrationNumber);
 
-        publisher.sendMessages(connection, frmDepartment, message);
+        publisher.sendMessages(frmDepartment, message);
     }
 }

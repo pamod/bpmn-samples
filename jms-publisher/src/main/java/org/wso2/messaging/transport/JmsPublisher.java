@@ -31,17 +31,25 @@ public class JmsPublisher {
      */
     private QueueSession queueSession;
 
+    /**
+     * The connection factory would be defined when initializing the publisher
+     */
+    private JMSConnection connection;
+
+
+    public JmsPublisher(JMSConnection connection) {
+        this.connection = connection;
+    }
 
     /**
      * Sends a JMS message to a queue
      *
-     * @param connection connection with the JMS provider
-     * @param queueName  name of the destination queue
-     * @param message    message content
+     * @param queueName name of the destination queue
+     * @param message   message content
      * @throws NamingException
      * @throws JMSException
      */
-    public void sendMessages(JMSConnection connection, String queueName, Message message) throws NamingException,
+    public void sendMessages(String queueName, Message message) throws NamingException,
             JMSException {
 
         QueueSender queueSender = null;
