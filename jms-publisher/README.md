@@ -21,7 +21,7 @@ Limitations
  2. This will flood the network traffic 
  3. When human interaction is involved and if it involves an approval process, the person will have to iteratively keep approving the records until the connecting systems are available during the failure. 
  
- Hence, this sample intends to illustrate how fault resilience could be obtained overcoming the limitations mentioned above.  
+Hence, this sample intends to illustrate how fault resilience could be obtained overcoming the limitations mentioned above.  
  
 #Scenario 
 
